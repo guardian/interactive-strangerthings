@@ -1,0 +1,169 @@
+@import "mq";
+@import "fonts";
+// Uncomment for embeds
+//@import "embed";
+// Uncomment for full screen (including immersive article main media)
+//@import "fullscreen";
+
+.element-atom,
+.interactive-atom {
+  margin: 0 !important;
+}
+
+.content__head {
+  background-color: blue;
+  height: 100vh;
+  margin: 0 auto;
+}
+// Background Image //
+.content__head::before {
+  content: "";
+  display: block;
+  background-color: #111111;
+  background-repeat: no-repeat;
+  background-image: url('<%= path %>/assets/duffer-bros-mobile.png');
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  z-index: 20;
+  @include mq($from: tablet) {
+    background-image: url('<%= path %>/assets/duffer-bros-cover.png');
+  }
+  @include mq($from: wide) {
+    background-size: contain;
+  }
+}
+// SVG logo //
+header .content__main-column::before {
+  content: "";
+  position: relative;
+  display: block;
+  background: url('<%= path %>/assets/duffer-headline-mobile.svg');
+  background-size: 300px 217px;
+  background-repeat: no-repeat;
+  z-index: 30;
+  width: 300px;
+  height: 217px;
+  top: 24px;
+  @include mq($from: mobileMedium) {
+    background-size: 346px 251px;
+    width: 346px;
+    height: 251px;
+  }
+  @include mq($from: tablet) {
+    top: 316px;
+  }
+  @include mq($from: wide) {
+    background: url('<%= path %>/assets/duffer-headline-desktop.svg');
+    background-size: 500px 318px;
+    width: 500px;
+    height: 318px;
+    top: 316px;
+  }
+}
+
+
+img {
+  height: auto;
+}
+
+
+.content--interactive .content__main-column--interactive  {
+p {
+  margin-bottom: 1rem;
+  word-wrap: break-word;
+}
+}
+
+sup {
+  color: transparent;
+  -webkit-text-stroke: 4px #E20F1A;
+  -webkit-font-smoothing: auto;
+  float: left;
+  font-size: 126px;
+  line-height: 118px;
+  padding-right: 8px;
+  margin-bottom: -24px;
+  top: 0;
+}
+
+// sup {
+//   display: inline-block;
+//   background-image: url('<%= path %>/assets/w.svg') !important;
+//   float: left;
+//   background-size: cover;
+//   background-repeat: no-repeat;
+//   height: 126px;
+//   width: 175px;
+//   top: 0;
+// }
+
+
+
+.content--interactive .content__main-column--interactive  {
+  max-width: 38.75rem;
+
+  @include mq($from: tablet) {
+    max-width: 43.75rem;
+  }
+
+  @include mq($from: desktop) {
+    max-width: 38.75rem;
+    margin-left: 0;
+    margin-right: 20rem;
+  }
+
+  @include mq($from: leftCol) {
+    margin-left: 10rem;
+  }
+
+  @include mq($from: wide) {
+    margin-left: 15rem;
+  }
+}
+
+.content__main-column--interactive blockquote.quoted {
+    p {
+    font-size: 25px;
+    font-family: "Guardian Egyptian Web",Georgia,serif;
+    font-weight: 200;
+    color: #333333;
+    line-height: 28px;
+    margin-bottom: 36px;
+    margin-top: 12px;
+
+    @include mq($from: desktop) {
+      font-size: 32px;
+      line-height: 34px;
+    }
+
+    strong {
+      display: block;
+      color: #E20F1A;
+    }
+}
+}
+
+.content__main-column--interactive blockquote.quoted:before {
+    content: '';
+    display: block;
+    background-image: url('<%= path %>/assets/quote.svg') !important;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 34px;
+    width: 50px;
+    margin-bottom: 6px;
+  }
+
+  .content__main-column--interactive .element-image figcaption {
+    font-family: "Guardian Text Sans Web","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+    font-size: 12px;
+    color: #999999;
+  }
+
+// Feature image removal //
+  .byline-img {
+    display: none;
+  }
